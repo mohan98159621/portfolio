@@ -19,15 +19,19 @@ export const PROFILE: Profile = {
 export const SKILLS: SkillCategory[] = [
   {
     category: "Frontend Core",
-    items: ["React.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "SCSS", "SASS", "XML", "Tailwind CSS"]
+    items: ["React.js", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "SCSS", "SASS", "XML", "Tailwind CSS"]
   },
   {
     category: "UI Frameworks",
-    items: ["Material UI", "Shadcn"]
+    items: ["Material UI", "Shadcn","Ant Design", "Framer Motion", "Lucide Icons"]
   },
   {
     category: "Tools & Libraries",
     items: ["Firebase (Auth, Firestore, Cloud Functions)", "Algolia", "Chart.js", "TipTap Editor"]
+  },
+  {
+    category: "Project Management",
+    items: ["Jira", "Asana", "Trello", "Slack", "Microsoft Teams"]
   }
 ];
 
@@ -48,6 +52,24 @@ export const PROJECTS: Project[] = [
       "Implemented the Courses feature, enabling users to create, enroll in, and participate in structured learning modules."
     ],
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+    link: "#" // Add your project URL here
+  },
+  {
+    title: "Real Estate Property Management Platform",
+    role: "Frontend Developer",
+    tech: ["React.js", "TypeScript", "Tailwind CSS", "Material UI", "Chart.js"],
+    description: "A comprehensive real estate platform designed to streamline property listings, search, and management. It enables users to browse properties, schedule viewings, and manage inquiries while providing property managers with analytics and lead tracking capabilities.",
+    responsibilities: [
+      "Developed property listing pages with advanced filters including location, price range, property type, and amenities.",
+      "Implemented interactive property search with real-time filtering and sorting using React and TypeScript.",
+      "Created responsive property detail pages showcasing images, floor plans, specifications, and virtual tour integration.",
+      "Built inquiry management system allowing users to schedule property viewings and contact agents directly.",
+      "Integrated Chart.js for analytics dashboards displaying property performance, lead conversion rates, and market trends.",
+      "Implemented image galleries with lightbox functionality and lazy loading for optimal performance.",
+      "Developed user dashboard for saved properties, scheduled viewings, and inquiry tracking.",
+      "Collaborated with backend team to integrate RESTful APIs for property data and user management."
+    ],
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800",
     link: "#" // Add your project URL here
   },
   {
