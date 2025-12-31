@@ -7,7 +7,7 @@ export const PROFILE: Profile = {
   role: "Frontend Developer",
   experience: "2+ Years of Experience",
   summary: "Creative and detail-oriented Frontend Developer with over 2 years of experience in building responsive web applications and interactive features that improve user experience and drive business growth. Proficient in React, TypeScript, and modern UI frameworks, with strong expertise in collaboration and knowledge-sharing platforms. Skilled in client communication, requirement gathering, and delivering high-quality solutions aligned with project plans. Flexible, quick to adapt to new environments, and experienced in solving complex technical problems while maintaining code quality and test coverage.",
-  email: "mohan.sharma121@gmail.com",
+  email: "mohansharma121@gmail.com",
   phone: "+91 9815962120",
   location: "India",
   social: {
