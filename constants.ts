@@ -3,7 +3,7 @@ import { Profile, Project, SkillCategory, SectionId } from './types';
 export { SectionId };
 
 export const PROFILE: Profile = {
-  name: "Mohan Sharma",
+  name: "Mohan",
   role: "Frontend Developer",
   experience: "2+ Years of Experience",
   summary: "Creative and detail-oriented Frontend Developer with over 2 years of experience in building responsive web applications and interactive features that improve user experience and drive business growth. Proficient in React, TypeScript, and modern UI frameworks, with strong expertise in collaboration and knowledge-sharing platforms. Skilled in client communication, requirement gathering, and delivering high-quality solutions aligned with project plans. Flexible, quick to adapt to new environments, and experienced in solving complex technical problems while maintaining code quality and test coverage.",
@@ -23,7 +23,7 @@ export const SKILLS: SkillCategory[] = [
   },
   {
     category: "UI Frameworks",
-    items: ["Material UI", "Shadcn","Ant Design", "Framer Motion", "Lucide Icons"]
+    items: ["Material UI", "Shadcn", "Ant Design", "Framer Motion", "Lucide Icons"]
   },
   {
     category: "Tools & Libraries",
