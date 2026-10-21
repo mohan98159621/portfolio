@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
-import { jsPDF } from 'jspdf';
-import { PROFILE, SKILLS, PROJECTS, SectionId } from '../constants';
+import { PROFILE, RESUME_URL, SectionId } from '../constants';
 import FadeIn from './FadeIn';
 
 const Hero: React.FC = () => {
@@ -15,121 +14,6 @@ const Hero: React.FC = () => {
       const offsetPosition = elementPosition - offset;
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
-  };
-
-  const handleDownloadCV = () => {
-    const doc = new jsPDF();
-    const margin = 20;
-    let yPos = 20;
-
-    // Header
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(22);
-    doc.setTextColor(33, 33, 33);
-    doc.text(PROFILE.name, margin, yPos);
-    yPos += 10;
-
-    doc.setFontSize(14);
-    doc.setTextColor(59, 130, 246); // Blue color
-    doc.text(PROFILE.role, margin, yPos);
-    yPos += 10;
-
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(10);
-    doc.setTextColor(80, 80, 80);
-    doc.text(PROFILE.email, margin, yPos);
-    yPos += 5;
-    doc.text(PROFILE.phone, margin, yPos);
-    yPos += 5;
-    doc.text(PROFILE.location, margin, yPos);
-    yPos += 15;
-
-    // Summary Section
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(12);
-    doc.setTextColor(33, 33, 33);
-    doc.text("PROFESSIONAL SUMMARY", margin, yPos);
-    yPos += 2;
-    doc.setDrawColor(200, 200, 200);
-    doc.line(margin, yPos, 190, yPos);
-    yPos += 8;
-
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(10);
-    const splitSummary = doc.splitTextToSize(PROFILE.summary, 170);
-    doc.text(splitSummary, margin, yPos);
-    yPos += (splitSummary.length * 5) + 10;
-
-    // Skills Section
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(12);
-    doc.text("SKILLS", margin, yPos);
-    yPos += 2;
-    doc.line(margin, yPos, 190, yPos);
-    yPos += 8;
-
-    doc.setFontSize(10);
-    SKILLS.forEach(skillGroup => {
-      doc.setFont("helvetica", "bold");
-      doc.text(skillGroup.category + ":", margin, yPos);
-
-      const items = skillGroup.items.join(", ");
-      const splitItems = doc.splitTextToSize(items, 130);
-
-      doc.setFont("helvetica", "normal");
-      doc.text(splitItems, margin + 40, yPos);
-
-      yPos += (Math.max(1, splitItems.length) * 5) + 2;
-    });
-    yPos += 10;
-
-    // Experience/Projects Section
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(12);
-    doc.text("EXPERIENCE & PROJECTS", margin, yPos);
-    yPos += 2;
-    doc.line(margin, yPos, 190, yPos);
-    yPos += 8;
-
-    PROJECTS.forEach((proj) => {
-      if (yPos > 250) {
-        doc.addPage();
-        yPos = 20;
-      }
-
-      // Project Title & Role
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(11);
-      doc.text(proj.title, margin, yPos);
-
-      doc.setFont("helvetica", "italic");
-      doc.setFontSize(9);
-      doc.text(proj.role, 190, yPos, { align: "right" });
-      yPos += 6;
-
-      // Description
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(10);
-      const splitDesc = doc.splitTextToSize(proj.description, 170);
-      doc.text(splitDesc, margin, yPos);
-      yPos += (splitDesc.length * 5) + 4;
-
-      // Responsibilities (Bullet points)
-      proj.responsibilities.forEach(resp => {
-        if (yPos > 270) {
-          doc.addPage();
-          yPos = 20;
-        }
-        const bulletPrefix = "• ";
-        const splitResp = doc.splitTextToSize(bulletPrefix + resp, 165);
-        doc.text(splitResp, margin + 5, yPos);
-        yPos += (splitResp.length * 5) + 1;
-      });
-
-      yPos += 8;
-    });
-
-    doc.save("Mohan_Sharma_Resume.pdf");
   };
 
   return (
@@ -178,13 +62,16 @@ const Hero: React.FC = () => {
                   View Projects
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button
-                  onClick={handleDownloadCV}
-                  className="px-8 py-3.5 bg-white text-slate-700 border border-slate-200 rounded-full font-medium hover:border-slate-300 hover:bg-slate-50 transition-all duration-300 flex items-center shadow-sm hover:shadow-md"
+                <a
+                  href={RESUME_URL}
+                  download="Mohan_Vishwakarma_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-3.5 bg-white text-slate-700 border border-slate-200 rounded-full font-medium hover:border-slate-300 hover:bg-slate-50 transition-all duration-300 flex items-center shadow-sm hover:shadow-md cursor-pointer"
                 >
                   <Download className="mr-2 w-4 h-4" />
                   Download CV
-                </button>
+                </a>
               </div>
             </FadeIn>
 
